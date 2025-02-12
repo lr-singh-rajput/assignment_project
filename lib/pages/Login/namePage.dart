@@ -1,5 +1,6 @@
 import 'package:assessmentoruphone1/controller/UserController.dart';
 import 'package:assessmentoruphone1/pages/Login/Widgets.dart';
+import 'package:assessmentoruphone1/pages/homePage/HomePage.dart;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,12 @@ class NamePage extends StatelessWidget {
                 ElevatedButton(onPressed: (){
                   if(nameController != null) {
                     userCredential.postApi(nameController.text,authNumber.toString(),BuildContext);
+                     Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                        ),
+                    );
                   }else{
                     print('Enter Your Name');
                   }
